@@ -1,0 +1,5 @@
+INSERT INTO PLAYLIST VALUES ('Favoritos');
+INSERT INTO PLAYLIST VALUES ('Mis Canciones');
+INSERT INTO PLAYLIST VALUES ('Latino Calienteee');
+INSERT INTO PLAYLIST VALUES ('This is Arctic Monkeys');
+

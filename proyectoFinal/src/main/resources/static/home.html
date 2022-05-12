@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css"/>
+
+</head>
+<body style="background-color:#202020;">
+
+<nav class=" navbar navbar-expand-lg navbar-light" style="background-color:#4dfc76;">
+    <a class="mx-3 navbar-brand" href="home.html">Inicio</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+                <a class="nav-link" href="logIn.html">LogIn</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="signUp.html">SignUp</a>
+            </li>
+        </ul>
+
+    </div>
+</nav>
+<center>
+    <div class="pb-5 pt-4"  id="titulo">
+        <h1 style="margin-bottom:0px !important;">HOME!</h1>
+
+    </div>
+    <div id="formularioHome">
+        <form >
+            <big><big><big><big><label class="pb-2" for="playlistId">Playlists</label></big></big></big></big>
+            <br>
+            <input type="text" id="playlistId" placeholder="e.g. Favoritos">
+            <br><br>
+        </form>
+        <button onclick="PlaylistPorId()">Buscar</button>
+        <button onclick="BorraPlaylistPorId()">Borrar</button>
+        <button onclick="location.href = 'createPlaylist.html' ">Crear</button>
+
+        <br><br>
+        <form >
+            <big><big><big><big><label class="pb-2" for="cancionId">Canciones</label></big></big></big></big>
+            <br>
+            <input type="text" id="cancionId" placeholder="e.g. 1 (Buscar por ID)">
+            <br><br>
+        </form>
+        <button onclick="CancionPorId()">Buscar</button>
+        <button onclick="BorraCancionPorId()">Borrar</button>
+        <button onclick = "location.href ='createCancion.html'">Crear</button>
+
+        <br><br>
+        <form >
+            <big><big><big><big><label class="pb-2" for="usuarioUsername">Usuarios</label></big></big></big></big>
+            <br>
+            <input type="text" id="usuarioUsername" placeholder="e.g. vicstroyer">
+            <br><br>
+        </form>
+        <button onclick="UsuarioPorId()">Buscar</button>
+        <button onclick="BorraUsuarioPorId()">Borrar</button>
+        <button onclick="location.href='signUp.html'">Crear</button>
+
+
+    </div>
+
+</center>
+
+<script src="script.js"></script>
+<script src="userMethods.js"></script>
+<!-- JavaScript Bundle with Popper -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+
+</body>
+</html>
