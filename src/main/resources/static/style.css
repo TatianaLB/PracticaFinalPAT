@@ -1,5 +1,7 @@
 h1,h2,h3,h4{
     color:white;
+    font-family: "Gadugi";
+
 }
 
 label{
@@ -71,11 +73,7 @@ width: 6%;
 
 }
 
-.titleSpace{
-    background-color:#DCFFD7;
-    border-style:double;
 
-}
 
 .searchSpace{
     background-color:#DCFFD7;
@@ -118,4 +116,16 @@ width: 6%;
 button.list-group-item{
     border:none;
     background-color:#DCFFD7;
+}
+
+
+.my-div {
+    background-color:#DCFFD7;
+    border-style:double;
+}
+a.fill-div {
+    display: block;
+    height: 100%;
+    width: 100%;
+    text-decoration: none;
 }

@@ -8,8 +8,6 @@ import org.springframework.data.annotation.Id;
 import org.springframework.data.relational.core.mapping.Column;
 import org.springframework.data.relational.core.mapping.Table;
 
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 
 @Data
 @AllArgsConstructor
@@ -17,7 +15,6 @@ import javax.persistence.GenerationType;
 
 @Table("CANCION")
 public class cancionModel {
-  @GeneratedValue(strategy = GenerationType.IDENTITY)
   private @Column("ID") @Id
   int id;
   private @Column("NOMBRE")

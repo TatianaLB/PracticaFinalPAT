@@ -29,7 +29,7 @@ async function signUp(){
                 console.log(data);
                 if(data.result == "OK") {
                     alert("Usuario Creado");
-                    document.location.href="/api/v1/usuarios";
+                    window.location.href="login.html";
                 } else {
                     alert(data.result);
                 }
@@ -68,7 +68,7 @@ async function LogIn(){
                     console.log(data.accessToken);
                     localStorage.setItem("user", usuario);
                     localStorage.setItem("accessToken", data.accessToken);
-                    document.location.href="ListOfPlaylists.html";
+                    document.location.href="home.html";
                 } else {
                     alert(data.result);
                     if(data.result == "User doesn't exist. Please Sign Up."){
@@ -85,3 +85,4 @@ async function LogIn(){
     return false;
 
 }
+

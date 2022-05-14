@@ -41,8 +41,6 @@ function UsuarioPorId(){
 
 }
 
-
-
 //Funciones para borrar.
 function BorraPlaylistPorId(){
 
@@ -112,3 +110,14 @@ function CreatePlaylistMethod(){
 
 }
 
+
+window.onload = function(){
+    const titulo = document.querySelector("#nombreAutomaticoUsuario");
+    let username = localStorage.getItem("user");
+    const texto = document.createElement("h1");
+    texto.setAttribute("style","color:#4dfc76;");
+    texto.textContent = "Bienvenido/a, " + username + "!";
+    titulo.appendChild(texto);
+
+
+}
