@@ -29,7 +29,7 @@ function CreateCancion(){
                 if(data.result == "OK") {
                     alert("Cancion Creada");
                     document.location.href="/api/v1/canciones";
-                    window.location.href="ListOfCanciones.html"
+                    window.location.href="ListOfPlaylists.html"
                 } else {
                     alert("Error.");
                 }

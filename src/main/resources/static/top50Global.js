@@ -57,7 +57,7 @@ window.onload = async function(){
                                            if(data.result == "OK") {
                                                alert("Canción Creada");
                                                document.location.href="/api/v1/canciones";
-                                               window.location.href = 'ListOfCanciones.html';
+                                               window.location.href = 'ListOfPlaylists.html';
                                            } else {
                                                alert("Error.");
                                            }
