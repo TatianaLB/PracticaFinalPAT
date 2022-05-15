@@ -29,7 +29,44 @@ window.onload = async function(){
                         button.setAttribute("class", "list-group-item");
                         //button.setAttribute("onclick", 'GoToCanciones()')
                         button.addEventListener("click", function(){
-                           console.log("HELLO WORLD!");
+                           try {
+                                   //var playlist = localStorage.getItem("playlist");
+                                   //var playlist = "mis cosas";
+                                   var playlist = document.getElementById("playlist").value;
+                                   console.log(playlist);
+
+                                   var data = {
+                                               "id": null,
+                                               "nombre":nombre,
+                                               "playlist":playlist,
+                                               "artista":artista,
+                                               "album":album,
+                                               "longitud":longitud
+                                               };
+                                   const address = 'api/v1/cancion/create';
+                                   fetch(address, {
+                                       method: 'POST',
+                                       headers: {
+                                           'Content-Type': 'application/json'
+                                       },
+                                       body:JSON.stringify(data)
+                                       })
+                                       .then(response => response.json())
+                                       .then(data => {
+                                           console.log(data);
+                                           if(data.result == "OK") {
+                                               alert("Canción Creada");
+                                               document.location.href="/api/v1/canciones";
+                                               window.location.href = 'ListOfCanciones.html';
+                                           } else {
+                                               alert("Error.");
+                                           }
+                                       });
+
+                               } catch (err) {
+                                   console.error(err.message);
+                               }
+                               return false;
 
                            })
 
@@ -43,55 +80,6 @@ window.onload = async function(){
 
 
 };
-/*
-function GoToCanciones(){
-    let playlist = localStorage.getItem("playlist");
-    //localStorage.removeItem("playlist");
-    console.log(playlist);
-    //window.location.href = 'ListOfCanciones.html';
-}*/
-
-
-function CreateCancionTopGlobal(nombre,artista,album,longitud){
-
-
-    try {
-        //var playlist = localStorage.getItem("playlist");
-        var playlist = "favoritos";
-
-        var data = {
-                    "id": null,
-                    "nombre":nombre,
-                    "playlist":playlist,
-                    "artista":artista,
-                    "album":album,
-                    "longitud":longitud
-                    };
-        const address = 'api/v1/cancion/create';
-        fetch(address, {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body:JSON.stringify(data)
-            })
-            .then(response => response.json())
-            .then(data => {
-                console.log(data);
-                if(data.result == "OK") {
-                    alert("Canción Creada");
-                    document.location.href="/api/v1/canciones";
-                    window.location.href = 'ListOfCanciones.html';
-                } else {
-                    alert("Error.");
-                }
-            });
-
-    } catch (err) {
-        console.error(err.message);
-    }
-    return false;
-}
 
 
 

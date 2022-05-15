@@ -95,7 +95,8 @@ function CreatePlaylistMethod(){
                 console.log(data);
                 if(data.result == "OK") {
                     alert("Playlist Created");
-                    document.location.href="/api/v1/playlists";
+                    //document.location.href="/api/v1/playlists";
+                    window.location.href = "home.html";
                 }else {
                     alert(data.result);
                 }
