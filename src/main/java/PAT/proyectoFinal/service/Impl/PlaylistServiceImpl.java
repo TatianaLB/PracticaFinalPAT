@@ -1,44 +1,40 @@
 package PAT.proyectoFinal.service.Impl;
 
-import PAT.proyectoFinal.model.cancionModel;
-import PAT.proyectoFinal.model.playlistModel;
-import PAT.proyectoFinal.repository.cancionRepository;
-import PAT.proyectoFinal.repository.playlistRepository;
-import PAT.proyectoFinal.service.playlistService;
+import PAT.proyectoFinal.model.PlaylistModel;
+import PAT.proyectoFinal.repository.PlaylistRepository;
+import PAT.proyectoFinal.service.PlaylistService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import PAT.proyectoFinal.repository.playlistRepository;
+
 import java.util.concurrent.atomic.AtomicInteger;
 
-import java.util.List;
-
 @Service
-public class playlistServiceImpl implements playlistService {
+public class PlaylistServiceImpl implements PlaylistService {
   AtomicInteger id = new AtomicInteger();
 
   @Autowired
-  playlistRepository playlistRepository;
+  PlaylistRepository playlistRepository;
 
 
   @Override
-  public Iterable<playlistModel> getPlaylistsService(){
+  public Iterable<PlaylistModel> getPlaylistsService(){
     return playlistRepository.findAll();
   }
 
   @Override
-  public Iterable<playlistModel> getPlaylistByIdService(String id, String user){
+  public Iterable<PlaylistModel> getPlaylistByIdService(String id, String user){
 
     return playlistRepository.findPlaylistById(id, user);
   }
 
   @Override
-  public Iterable<playlistModel> getPlaylistByUserService(String user){
+  public Iterable<PlaylistModel> getPlaylistByUserService(String user){
 
     return playlistRepository.findPlaylistByUser(user);
   }
 
   @Override
-  public Iterable<playlistModel> getPlaylistService(){
+  public Iterable<PlaylistModel> getPlaylistService(){
     return playlistRepository.findAll();
 
   }

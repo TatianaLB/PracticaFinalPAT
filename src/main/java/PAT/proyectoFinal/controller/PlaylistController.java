@@ -1,11 +1,8 @@
 package PAT.proyectoFinal.controller;
 
 import PAT.proyectoFinal.exception.PlaylistAlreadyExistsSignUpException;
-import PAT.proyectoFinal.model.cancionModel;
-import PAT.proyectoFinal.model.playlistModel;
-import PAT.proyectoFinal.service.cancionService;
-import PAT.proyectoFinal.service.playlistService;
-import org.apache.coyote.Response;
+import PAT.proyectoFinal.model.PlaylistModel;
+import PAT.proyectoFinal.service.PlaylistService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
@@ -18,29 +15,29 @@ import org.springframework.web.bind.annotation.*;
 public class PlaylistController {
 
   @Autowired
-  playlistService playlistService;
+  PlaylistService playlistService;
 
   @GetMapping("/playlists")
-  public ResponseEntity<Iterable<playlistModel>> getPlaylists(){
+  public ResponseEntity<Iterable<PlaylistModel>> getPlaylists(){
 
     HttpHeaders responseHeaders = new HttpHeaders();
     responseHeaders.set("Result", "OK");
     System.out.println(responseHeaders);
-    return new ResponseEntity<Iterable<playlistModel>>(playlistService.getPlaylistsService(),responseHeaders, HttpStatus.OK);
+    return new ResponseEntity<Iterable<PlaylistModel>>(playlistService.getPlaylistsService(),responseHeaders, HttpStatus.OK);
 
     //return ResponseEntity.ok().body(playlistService.getPlaylistsService());
   }
 
 
   @GetMapping("/playlists/{user}")
-  public ResponseEntity<Iterable<playlistModel>> getPlaylistsByUser(
+  public ResponseEntity<Iterable<PlaylistModel>> getPlaylistsByUser(
           @PathVariable String user
   ){
 
     HttpHeaders responseHeaders = new HttpHeaders();
     responseHeaders.set("Result", "OK");
     System.out.println(responseHeaders);
-    return new ResponseEntity<Iterable<playlistModel>>(playlistService.getPlaylistByUserService(user),responseHeaders, HttpStatus.OK);
+    return new ResponseEntity<Iterable<PlaylistModel>>(playlistService.getPlaylistByUserService(user),responseHeaders, HttpStatus.OK);
 
     //return ResponseEntity.ok().body(playlistService.getPlaylistsService());
   }
@@ -49,7 +46,7 @@ public class PlaylistController {
 
   //NO ESTA TERMINADO
   @RequestMapping(value="/playlist/{id}", method = RequestMethod.GET)
-  public ResponseEntity<Iterable<playlistModel>> getPlaylistByName(
+  public ResponseEntity<Iterable<PlaylistModel>> getPlaylistByName(
           @PathVariable String id,
           @RequestParam(value="user", required=true) String user){
 

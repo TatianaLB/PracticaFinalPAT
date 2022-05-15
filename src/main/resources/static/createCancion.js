@@ -27,7 +27,7 @@ function CreateCancion(){
             .then(data => {
                 console.log(data);
                 if(data.result == "OK") {
-                    alert("Cancion Creada");
+                    alert("Canción Creada");
                     document.location.href="/api/v1/canciones";
                     window.location.href="ListOfPlaylists.html"
                 } else {

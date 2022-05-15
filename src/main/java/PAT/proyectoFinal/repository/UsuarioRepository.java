@@ -1,22 +1,20 @@
 package PAT.proyectoFinal.repository;
 
 
-import PAT.proyectoFinal.model.usuarioModel;
+import PAT.proyectoFinal.model.UsuarioModel;
 
 import org.springframework.data.jdbc.repository.query.Modifying;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.data.jdbc.repository.query.Query;
 import org.springframework.data.repository.query.Param;
 
-import java.util.List;
 
-
-public interface usuarioRepository extends CrudRepository<usuarioModel,String> {
+public interface UsuarioRepository extends CrudRepository<UsuarioModel,String> {
 
 
 
   @Query("SELECT * FROM USUARIO WHERE USERNAME=:id")
-  Iterable<usuarioModel> getUsuarioById(@Param("id") String id);
+  Iterable<UsuarioModel> getUsuarioById(@Param("id") String id);
 
   @Modifying
   @Query("INSERT INTO USUARIO (username,nombre,apellido,email,edad,password) " +

@@ -1,27 +1,25 @@
 package PAT.proyectoFinal.service.Impl;
 
-import PAT.proyectoFinal.model.usuarioModel;
-import PAT.proyectoFinal.repository.usuarioRepository;
-import PAT.proyectoFinal.service.usuarioService;
+import PAT.proyectoFinal.model.UsuarioModel;
+import PAT.proyectoFinal.repository.UsuarioRepository;
+import PAT.proyectoFinal.service.UsuarioService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
-
 @Service
-public class usuarioServiceImpl implements usuarioService {
+public class UsuarioServiceImpl implements UsuarioService {
 
   @Autowired
-  private usuarioRepository usuarioRepository;
+  private UsuarioRepository usuarioRepository;
 
 
   @Override
-  public Iterable<usuarioModel> getUsuariosService(){
+  public Iterable<UsuarioModel> getUsuariosService(){
     return usuarioRepository.findAll();
   }
 
   @Override
-  public Iterable<usuarioModel> getUsuarioByIdService(String id){
+  public Iterable<UsuarioModel> getUsuarioByIdService(String id){
 
     return usuarioRepository.getUsuarioById(id);
   }
@@ -32,7 +30,7 @@ public class usuarioServiceImpl implements usuarioService {
   }
 
   @Override
-  public String compararYCrearUsuarioService(usuarioModel usuario){
+  public String compararYCrearUsuarioService(UsuarioModel usuario){
 
     String username = usuario.getUsername();
     boolean usuarioExists = usuarioRepository.existsById(username);

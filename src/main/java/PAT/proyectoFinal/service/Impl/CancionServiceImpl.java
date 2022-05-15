@@ -1,29 +1,27 @@
 package PAT.proyectoFinal.service.Impl;
 
-import PAT.proyectoFinal.model.cancionModel;
-import PAT.proyectoFinal.repository.cancionRepository;
-import PAT.proyectoFinal.service.cancionService;
+import PAT.proyectoFinal.model.CancionModel;
+import PAT.proyectoFinal.repository.CancionRepository;
+import PAT.proyectoFinal.service.CancionService;
 import org.springframework.beans.factory.annotation.Autowired;
-import PAT.proyectoFinal.repository.cancionRepository;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
 import java.util.concurrent.atomic.AtomicInteger;
 
 @Service
-public class cancionServiceImpl implements cancionService {
+public class CancionServiceImpl implements CancionService {
 
   AtomicInteger id = new AtomicInteger();
   @Autowired
-  private cancionRepository cancionRepository;
+  private CancionRepository cancionRepository;
 
   @Override
-  public Iterable<cancionModel> getCancionesService(){
+  public Iterable<CancionModel> getCancionesService(){
     return cancionRepository.findAll();
   }
 
   @Override
-  public Iterable<cancionModel> getCancionByIdService(String id){
+  public Iterable<CancionModel> getCancionByIdService(String id){
     return cancionRepository.getCancionById(id);
   }
 
@@ -33,7 +31,7 @@ public class cancionServiceImpl implements cancionService {
   }
 
   @Override
-  public void createCancionService(cancionModel cancion){
+  public void createCancionService(CancionModel cancion){
     int id1 = id.getAndIncrement();
     String nombre = cancion.getNombre();
     String playlist = cancion.getPlaylist();
@@ -44,7 +42,7 @@ public class cancionServiceImpl implements cancionService {
   }
 
   @Override
-  public Iterable<cancionModel> getCancionesByPlaylistService(String playlist){
+  public Iterable<CancionModel> getCancionesByPlaylistService(String playlist){
 
     return cancionRepository.getCancionByPlaylist(playlist);
   }

@@ -18,23 +18,23 @@
     <form class=" " action="index.html">
         <label for="nombre">Nombre de la Canción: </label>
         <br>
-        <input type="text" placeholder="e.g. Billie Jean" id="nombre">
+        <input type="text" minlength="4" maxlength="100" placeholder="e.g. Billie Jean" id="nombre" required>
         <br><br>
         <label for="playlist">¿A qué playlist quieres añadirla?</label>
         <br>
-        <input type="text" placeholder="e.g. Mis Favoritos" id="playlist">
+        <input type="text" minlength="4" maxlength="100" placeholder="e.g. Mis Favoritos" id="playlist" required>
         <br><br>
         <label for="artista">¿De quién es la canción?</label>
         <br>
-        <input type="text" placeholder="e.g. Michael Jackson" id="artista">
+        <input type="text" maxlength="100" placeholder="e.g. Michael Jackson" id="artista">
         <br><br>
         <label for="album">¿De qué album es?</label>
         <br>
-        <input type="text" placeholder="e.g. Thriller" id="album">
+        <input type="text" maxlength="100" placeholder="e.g. Thriller" id="album">
         <br><br>
         <label for="longitud">¿Cuánto dura la canción? (en segundos)</label>
         <br>
-        <input type="text" placeholder="e.g. 180" id="longitud">
+        <input type="text" maxlength="6" placeholder="e.g. 180" id="longitud">
 
 
     </form>
@@ -44,7 +44,7 @@
 
     <br><br><br>
     <div style ="background-color:#202020;">
-        <a class="pr-2" href="ListOfCanciones.html"  style="color:white">Volver a la Playlist</a>
+        <a class="pr-2" href="ListOfPlaylists.html"  style="color:white">Volver a las Playlists</a>
     </div>
 
 </center>

@@ -1,6 +1,5 @@
 package PAT.proyectoFinal.model;
 
-
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -12,19 +11,12 @@ import org.springframework.data.relational.core.mapping.Table;
 @AllArgsConstructor
 @NoArgsConstructor
 
-@Table("USUARIO")
-public class usuarioModel {
-
-  private @Column("USERNAME") @Id
-  String username;
+@Table("PLAYLIST")
+public class PlaylistModel {
+  private @Column("ID") @Id
+  int id;
   private @Column("NOMBRE")
   String nombre;
-  private @Column("APELLIDO")
-  String apellido;
-  private @Column("EMAIL")
-  String email;
-  private @Column("EDAD")
-  int edad;
-  private @Column("PASSWORD")
-  String password;
+  private @Column("USER")
+  String user;
 }

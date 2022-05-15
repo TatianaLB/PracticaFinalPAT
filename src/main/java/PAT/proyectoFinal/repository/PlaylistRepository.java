@@ -1,25 +1,24 @@
 package PAT.proyectoFinal.repository;
 
 
-import PAT.proyectoFinal.model.playlistModel;
+import PAT.proyectoFinal.model.PlaylistModel;
 import org.springframework.data.jdbc.repository.query.Modifying;
 import org.springframework.data.jdbc.repository.query.Query;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.data.repository.query.Param;
 
-import java.util.List;
 import java.util.concurrent.atomic.AtomicInteger;
 
-public interface playlistRepository extends CrudRepository<playlistModel,Integer> {
+public interface PlaylistRepository extends CrudRepository<PlaylistModel,Integer> {
 
     AtomicInteger id = new AtomicInteger();
     
 
   @Query("SELECT * FROM PLAYLIST WHERE NOMBRE=:nombre AND USER=:user")
-  Iterable<playlistModel> findPlaylistById(@Param("nombre") String nombre, @Param("user") String user);
+  Iterable<PlaylistModel> findPlaylistById(@Param("nombre") String nombre, @Param("user") String user);
 
   @Query("SELECT * FROM PLAYLIST WHERE USER=:user")
-  Iterable<playlistModel> findPlaylistByUser(@Param("user") String user);
+  Iterable<PlaylistModel> findPlaylistByUser(@Param("user") String user);
 
   @Modifying
   @Query("INSERT INTO PLAYLIST (ID, NOMBRE, USER) VALUES (:id, :nombre, :user)")

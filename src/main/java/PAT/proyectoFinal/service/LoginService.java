@@ -1,9 +1,9 @@
 package PAT.proyectoFinal.service;
 
-import PAT.proyectoFinal.model.usuarioModel;
+import PAT.proyectoFinal.model.UsuarioModel;
 
 public interface LoginService {
 
-  LoginServiceResult LogInUsuarioService(usuarioModel usuasio);
+  LoginServiceResult LogInUsuarioService(UsuarioModel usuasio);
 
 }

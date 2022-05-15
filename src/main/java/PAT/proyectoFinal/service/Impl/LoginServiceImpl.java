@@ -1,8 +1,8 @@
 package PAT.proyectoFinal.service.Impl;
 
-import PAT.proyectoFinal.model.usuarioModel;
+import PAT.proyectoFinal.model.UsuarioModel;
 import PAT.proyectoFinal.service.LoginService;
-import PAT.proyectoFinal.repository.usuarioRepository;
+import PAT.proyectoFinal.repository.UsuarioRepository;
 import PAT.proyectoFinal.service.LoginServiceResult;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -13,10 +13,10 @@ import java.util.Base64;
 public class LoginServiceImpl implements LoginService {
 
   @Autowired
-  private usuarioRepository usuarioRepository;
+  private UsuarioRepository usuarioRepository;
 
   @Override
-  public LoginServiceResult LogInUsuarioService(usuarioModel usuario){
+  public LoginServiceResult LogInUsuarioService(UsuarioModel usuario){
 
     String username = usuario.getUsername();
     String obtainedPassword = usuario.getPassword();

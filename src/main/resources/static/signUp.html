@@ -27,19 +27,19 @@
     <form >
         <label for="usernameUsuario">Nombre de Usuario</label>
         <br>
-        <input type="text" placeholder=" e.g. Victor123" id="usernameUsuario">
+        <input type="text" minlength="4" maxlength="100" placeholder=" e.g. Victor123" id="usernameUsuario" required>
         <br><br>
         <label for="nombreUsuario">Nombre</label>
         <br>
-        <input type="text" placeholder=" e.g. Victor" id="nombreUsuario">
+        <input type="text" minlength="3" maxlength="100" placeholder=" e.g. Victor" id="nombreUsuario">
         <br><br>
         <label for="apellidoUsuario">Apellido</label>
         <br>
-        <input type="text" placeholder=" e.g. Rodríguez" id="apellidoUsuario">
+        <input type="text" minlength="3" maxlength="100" placeholder=" e.g. Rodríguez" id="apellidoUsuario">
         <br><br>
         <label for="emailUsuario">Email</label>
         <br>
-        <input type="text" placeholder=" e.g. email@email.com" id="emailUsuario">
+        <input type="text" maxlength="100" placeholder="e.g. email@email.com" id="emailUsuario" required>
         <br><br>
         <label for="edadUsuario">Edad</label>
         <br>
@@ -47,7 +47,7 @@
         <br><br>
         <label for="passwordUsuario">Contraseña</label>
         <br>
-        <input type="password" placeholder=" e.g. password123" id="passwordUsuario">
+        <input type="password" minlength="8" maxlength="100" placeholder=" e.g. password123" id="passwordUsuario" required>
 
     </form>
     <br>
@@ -57,7 +57,7 @@
 
 
 
-    <div class="pb-5"style="background-color:#202020" id="loginOption">
+    <div class="pb-5" style="background-color:#202020" id="loginOption">
         <br>
         <h4 class="py-2">Si ya tienes una cuenta con nosotros, <a href="login.html">Inicia Sesión</a> </h4>
 

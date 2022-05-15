@@ -3,10 +3,10 @@ package PAT.proyectoFinal.controller;
 import PAT.proyectoFinal.exception.UserAlreadyExistsException;
 import PAT.proyectoFinal.exception.UserDoesntExistLogInException;
 import PAT.proyectoFinal.exception.WrongPasswordLogInException;
-import PAT.proyectoFinal.model.usuarioModel;
+import PAT.proyectoFinal.model.UsuarioModel;
 import PAT.proyectoFinal.service.LoginService;
 import PAT.proyectoFinal.service.LoginServiceResult;
-import PAT.proyectoFinal.service.usuarioService;
+import PAT.proyectoFinal.service.UsuarioService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -19,19 +19,19 @@ import org.springframework.web.bind.annotation.*;
 public class UsuarioController {
 
   @Autowired
-  usuarioService usuarioService;
+  UsuarioService usuarioService;
 
   @Autowired
   private LoginService loginService;
 
   @GetMapping("/usuarios")
-  public ResponseEntity<Iterable<usuarioModel>> getUsuarios() {
+  public ResponseEntity<Iterable<UsuarioModel>> getUsuarios() {
     return ResponseEntity.ok().body(usuarioService.getUsuariosService());
   }
 
 
   @GetMapping("/usuario/{id}")
-  public ResponseEntity<Iterable<usuarioModel>> getUsuarioById(@PathVariable String id) {
+  public ResponseEntity<Iterable<UsuarioModel>> getUsuarioById(@PathVariable String id) {
 
 
     //return ResponseEntity.ok().body(id);
@@ -47,7 +47,7 @@ public class UsuarioController {
 
   @PostMapping("/signup")
   public ResponseEntity<String> crearYCompararUsuario(
-          @RequestBody usuarioModel usuario,
+          @RequestBody UsuarioModel usuario,
           BindingResult bindingResult) {
     if (bindingResult.hasErrors()) {
       return new ResponseEntity<String>("{\"result\" : \"KO\"}", HttpStatus.BAD_REQUEST);
@@ -64,7 +64,7 @@ public class UsuarioController {
 
   @PostMapping("/login") //HACE FALTA EL CODIGO DE VERIFICACION Y TO ESO DEL NUEVO TEMA.
   public ResponseEntity<LoginResponse> compararUsuario(
-          @RequestBody usuarioModel usuario,
+          @RequestBody UsuarioModel usuario,
           BindingResult bindingResult){
 
     if (bindingResult.hasErrors()) {

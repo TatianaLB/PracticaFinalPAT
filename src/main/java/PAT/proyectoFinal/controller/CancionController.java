@@ -1,7 +1,7 @@
 package PAT.proyectoFinal.controller;
 
-import PAT.proyectoFinal.model.cancionModel;
-import PAT.proyectoFinal.service.cancionService;
+import PAT.proyectoFinal.model.CancionModel;
+import PAT.proyectoFinal.service.CancionService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -14,16 +14,16 @@ import org.springframework.web.bind.annotation.*;
 public class CancionController {
 
   @Autowired
-  cancionService cancionService;
+  CancionService cancionService;
 
 
   @GetMapping("/canciones")
-  public ResponseEntity<Iterable<cancionModel>> getCanciones(){
+  public ResponseEntity<Iterable<CancionModel>> getCanciones(){
     return ResponseEntity.ok().body(cancionService.getCancionesService());
   }
 
   @GetMapping("/cancion/{id}")
-  public ResponseEntity<Iterable<cancionModel>> getCancionById(@PathVariable String id){
+  public ResponseEntity<Iterable<CancionModel>> getCancionById(@PathVariable String id){
 
 
     //return ResponseEntity.ok().body(id);
@@ -44,7 +44,7 @@ public class CancionController {
 
   @PostMapping("/cancion/create")
   public ResponseEntity<String> createCancionById(
-          @RequestBody cancionModel cancion,
+          @RequestBody CancionModel cancion,
           BindingResult bindingResult){
 
     if(bindingResult.hasErrors()){
@@ -58,7 +58,7 @@ public class CancionController {
 
 
   @GetMapping("/canciones/playlist/{id}")
-  public ResponseEntity<Iterable<cancionModel>> getCancionesByPlaylist(
+  public ResponseEntity<Iterable<CancionModel>> getCancionesByPlaylist(
           @PathVariable String id){
 
     return ResponseEntity.ok().body(cancionService.getCancionesByPlaylistService(id));
