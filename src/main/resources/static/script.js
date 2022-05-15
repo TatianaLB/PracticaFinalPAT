@@ -77,8 +77,6 @@ function BorraUsuarioPorId(){
 
 }
 
-
-
 //funciones para crear.
 
 function CreatePlaylistMethod(){

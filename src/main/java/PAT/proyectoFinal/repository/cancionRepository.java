@@ -1,13 +1,11 @@
 package PAT.proyectoFinal.repository;
 
 import PAT.proyectoFinal.model.cancionModel;
-import PAT.proyectoFinal.model.playlistModel;
 import org.springframework.data.jdbc.repository.query.Modifying;
 import org.springframework.data.jdbc.repository.query.Query;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.data.repository.query.Param;
 
-import java.util.List;
 import java.util.concurrent.atomic.AtomicInteger;
 
 public interface cancionRepository extends CrudRepository<cancionModel,Integer> {
