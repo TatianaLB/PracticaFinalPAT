@@ -177,7 +177,7 @@ public class UserE2ETest {
     }
 
     //PostMapping /login
-    /*@Test
+    @Test
     public void userPostLoginTest(){
         UsuarioModel usuario = new UsuarioModel();
         usuario.setUsername("tatianalb");
@@ -188,7 +188,7 @@ public class UserE2ETest {
         usuario.setPassword("tati");
 
         //When: condiciones de nuestra prueba
-        String url = "http://localhost:" + Integer.toString(port) + "/api/v1/signup";
+        String url = "http://localhost:" + Integer.toString(port) + "/api/v1/login";
         HttpHeaders headers = new HttpHeaders();
         headers.add("Authorization","Basic dGF0aWFuYWxiOnRhdGk=");
 
@@ -205,7 +205,7 @@ public class UserE2ETest {
         //Then: Evaluamos la prueba
         then(result.getStatusCode()).isEqualTo(HttpStatus.OK);
         //then(result.getBody()).isEqualTo(loginResponse);
-    }*/
+    }
 
 
 }
