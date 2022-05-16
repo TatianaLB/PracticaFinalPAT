@@ -9,9 +9,8 @@ import org.springframework.data.relational.core.mapping.Table;
 
 
 @Data
-@AllArgsConstructor
 @NoArgsConstructor
-
+//@AllArgsConstructor
 @Table("CANCION")
 public class CancionModel {
   @Id
@@ -47,4 +46,55 @@ public class CancionModel {
   public int hashCode() {
     return getId();
   }
+
+
+  public int getId() {
+    return id;
+  }
+
+  public String getNombre() {
+    return nombre;
+  }
+
+  public String getPlaylist() {
+    return playlist;
+
+  }
+
+  public String getArtista() {
+    return artista;
+  }
+
+  public String getAlbum() {
+    return album;
+  }
+
+  public int getLongitud() {
+    return longitud;
+  }
+
+  public void setId(int id) {
+    this.id = id;
+  }
+
+  public void setNombre(String nombre) {
+    this.nombre = nombre;
+  }
+
+  public void setPlaylist(String playlist) {
+    this.playlist = playlist;
+  }
+
+  public void setArtista(String artista) {
+    this.artista = artista;
+  }
+
+  public void setAlbum(String album) {
+    this.album = album;
+  }
+
+  public void setLongitud(int longitud) {
+    this.longitud = longitud;
+  }
+
 }

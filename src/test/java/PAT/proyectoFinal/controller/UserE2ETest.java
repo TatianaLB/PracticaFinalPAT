@@ -10,6 +10,8 @@ import org.springframework.boot.web.server.LocalServerPort;
 import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.http.*;
 
+import java.util.Optional;
+
 import static org.assertj.core.api.BDDAssertions.then;
 
 
@@ -51,18 +53,12 @@ public class UserE2ETest {
     @Test
     public void userGetByIdTest(){
 
-        UsuarioModel usuario = new UsuarioModel();
-        usuario.setUsername("tatianalb");
-        usuario.setNombre("Tatiana");
-        usuario.setApellido("López");
-        usuario.setEmail("tatiana@gmail.com");
-        usuario.setEdad(21);
-        usuario.setPassword("tati");
+        Iterable<UsuarioModel> usuarioIt = repository.getUsuarioById("tatianalb");
 
         //When: condiciones de nuestra prueba
         String url = "http://localhost:" + Integer.toString(port) + "/api/v1/usuario/tatianalb";
         HttpHeaders headers = new HttpHeaders();
-        headers.add("Authorization","Basic dGF0aWFuYWxiOnRhdGk=");
+        //headers.add("Authorization","Basic dGF0aWFuYWxiOnRhdGk=");
         HttpEntity<String> entity = new HttpEntity<>("tatianalb",headers);
 
         //Given: Ejecutamos la prueba
@@ -76,26 +72,20 @@ public class UserE2ETest {
 
         //Then: Evaluamos la prueba
         then(result.getStatusCode()).isEqualTo(HttpStatus.OK);
-        then(result.getBody()).isEqualTo(usuario);
+        then(result.getBody()).isEqualTo(usuarioIt);
 
     }
 
     @Test
     public void userGetById2Test(){
 
-        UsuarioModel usuario = new UsuarioModel();
-        usuario.setUsername("GiraldaCB");
-        usuario.setNombre("Gira");
-        usuario.setApellido("CB");
-        usuario.setEmail("giralda@gmail.com");
-        usuario.setEdad(26);
-        usuario.setPassword("password");
+        Iterable<UsuarioModel> usuarioIt = repository.getUsuarioById("GiraldaCB");
 
         //When: condiciones de nuestra prueba
         String url = "http://localhost:" + port + "/api/v1/usuario/GiraldaCB";
         HttpHeaders headers = new HttpHeaders();
-        headers.add("Authorization","Basic R2lyYWxkYUNCOnBhc3N3b3Jk");
-        HttpEntity<String> entity = new HttpEntity<>(usuario.getUsername(),headers);
+        //headers.add("Authorization","Basic R2lyYWxkYUNCOnBhc3N3b3Jk");
+        HttpEntity<String> entity = new HttpEntity<>("GiraldaCB",headers);
 
         //Given: Ejecutamos la prueba
         ResponseEntity<Iterable<UsuarioModel>> result = restTemplate.exchange(
@@ -108,10 +98,30 @@ public class UserE2ETest {
 
         //Then: Evaluamos la prueba
         then(result.getStatusCode()).isEqualTo(HttpStatus.OK);
-        then(result.getBody()).isEqualTo(usuario);
+        then(result.getBody()).isEqualTo(usuarioIt);
 
     }
 
+    @Test
+    public void deleteUsuarioByIdTest(){
+
+        //When: condiciones de nuestra prueba
+        String url = "http://localhost:" + Integer.toString(port) + "/api/v1/usuario/delete/tatianalb";
+        HttpHeaders headers = new HttpHeaders();
+        HttpEntity<String> entity = new HttpEntity<>("tatianalb",headers);
+
+        //Given: Ejecutamos la prueba
+        ResponseEntity<Void> result = restTemplate.exchange(
+                url,
+                HttpMethod.GET,
+                entity,
+                new ParameterizedTypeReference<Void>() {}
+        );
+
+        //Then: Evaluamos la prueba
+        then(result.getStatusCode()).isEqualTo(HttpStatus.OK);
+
+    }
 
 
     //PostMapping /signup

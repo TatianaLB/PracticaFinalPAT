@@ -38,7 +38,7 @@ public class CancionController {
           ){
 
 
-    cancionService.deleteCancionByNameAndPlaylistService(name, playlist);
+    cancionService.deleteCancionByNameAndPlaylistService(name, playlist); //CAMBIAR PARA TENER EN CUENTA EL USUARIO
     return ResponseEntity.ok().build();
   }
 

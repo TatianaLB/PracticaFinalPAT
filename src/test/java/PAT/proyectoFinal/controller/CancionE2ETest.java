@@ -1,6 +1,7 @@
 package PAT.proyectoFinal.controller;
 
 import PAT.proyectoFinal.model.CancionModel;
+import PAT.proyectoFinal.model.UsuarioModel;
 import PAT.proyectoFinal.repository.CancionRepository;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -51,18 +52,13 @@ public class CancionE2ETest {
 
     @Test
     public void cancionGetByIdTest(){
-        CancionModel cancion = new CancionModel();
-        cancion.setId(-2);
-        cancion.setNombre("Gasolina");
-        cancion.setPlaylist("TemazosTuenti");
-        cancion.setArtista("Daddy Yankee");
-        cancion.setAlbum("Barrio Fino");
-        cancion.setLongitud(192);
+
+        Iterable<CancionModel> cancionIt = repository.getCancionById("-1");
 
         //When: condiciones de nuestra prueba
-        String url = "http://localhost:" + Integer.toString(port) + "/api/v1/cancion/-2";
+        String url = "http://localhost:" + Integer.toString(port) + "/api/v1/cancion/-1";
         HttpHeaders headers = new HttpHeaders();
-        HttpEntity<String> entity = new HttpEntity<>("-2",headers);
+        HttpEntity<String> entity = new HttpEntity<>(Integer.toString(-1),headers);
 
         //Given: Ejecutamos la prueba
         ResponseEntity<Iterable<CancionModel>> result = restTemplate.exchange(
@@ -74,8 +70,84 @@ public class CancionE2ETest {
 
         //Then: Evaluamos la prueba
         then(result.getStatusCode()).isEqualTo(HttpStatus.OK);
-        then(result.getBody()).isEqualTo(cancion);
+        then(result.getBody()).isEqualTo(cancionIt);
 
+    }
+
+    @Test
+    public void deleteCancionByNameandPlaylistTest(){
+
+        //Iterable<CancionModel> cancionIt = repository.deleteCancionByNameAndPlaylist("Gasolina","TemazosTuenti");
+
+        //When: condiciones de nuestra prueba
+        String url = "http://localhost:" + Integer.toString(port) + "/api/v1/cancion/delete/Gasolina";
+        HttpHeaders headers = new HttpHeaders();
+        HttpEntity<String> entity = new HttpEntity<>("Gasolina",headers);
+
+        //Given: Ejecutamos la prueba
+        ResponseEntity<Void> result = restTemplate.exchange(
+                url,
+                HttpMethod.GET,
+                entity,
+                new ParameterizedTypeReference<Void>() {}
+        );
+
+        //Then: Evaluamos la prueba
+        then(result.getStatusCode()).isEqualTo(HttpStatus.OK);
+        //then(result.getBody()).isEqualTo(cancionIt);
+
+    }
+
+    @Test
+    public void cancionGetByPlaylistTest(){
+
+        Iterable<CancionModel> cancionIt = repository.getCancionByPlaylist("2");
+
+        //When: condiciones de nuestra prueba
+        String url = "http://localhost:" + Integer.toString(port) + "/api/v1/canciones/playlist/2";
+        HttpHeaders headers = new HttpHeaders();
+        HttpEntity<String> entity = new HttpEntity<>("2",headers);
+
+        //Given: Ejecutamos la prueba
+        ResponseEntity<Iterable<CancionModel>> result = restTemplate.exchange(
+                url,
+                HttpMethod.GET,
+                entity,
+                new ParameterizedTypeReference<Iterable<CancionModel>>() {}
+        );
+
+        //Then: Evaluamos la prueba
+        then(result.getStatusCode()).isEqualTo(HttpStatus.OK);
+        then(result.getBody()).isEqualTo(cancionIt);
+
+    }
+
+    @Test
+    public void createCancionByIdTest(){
+        CancionModel cancion = new CancionModel();
+        cancion.setId(1);
+        cancion.setNombre("Purpurina");
+        cancion.setPlaylist("TemazosTuenti");
+        cancion.setArtista("Gambino");
+        cancion.setAlbum("Purpurina");
+        cancion.setLongitud(171);
+
+        //When: condiciones de nuestra prueba
+        String url = "http://localhost:" + Integer.toString(port) + "/api/v1/cancion/create";
+        HttpHeaders headers = new HttpHeaders();
+        HttpEntity<CancionModel> entity = new HttpEntity<>(cancion,headers);
+
+        //Given: Ejecutamos la prueba
+        ResponseEntity<String> result = restTemplate.exchange(
+                url,
+                HttpMethod.POST,
+                entity,
+                new ParameterizedTypeReference<String>() {}
+        );
+
+        //Then: Evaluamos la prueba
+        then(result.getStatusCode()).isEqualTo(HttpStatus.OK);
+        then(result.getBody()).isEqualTo("{\"result\" : \"OK\"}");
     }
 
 }
