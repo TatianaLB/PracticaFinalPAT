@@ -12,6 +12,5 @@ public interface CancionService {
 
   void createCancionService(CancionModel cancion);
 
-  Iterable<CancionModel> getCancionesByPlaylistService(String playlist);
-
+  Iterable<CancionModel> getCancionesByPlaylistUserService(String playlist,String user);
 }

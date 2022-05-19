@@ -1,6 +1,7 @@
 function CreateCancion(){
 
     try {
+        var usuario = localStorage.getItem("accessToken");
         var nombre = document.getElementById("nombre").value;
         var playlist = document.getElementById("playlist").value;
         var artista = document.getElementById("artista").value;
@@ -11,6 +12,7 @@ function CreateCancion(){
                     "id": null,
                     "nombre":nombre,
                     "playlist":playlist,
+                    "user":usuario,
                     "artista":artista,
                     "album":album,
                     "longitud":longitud

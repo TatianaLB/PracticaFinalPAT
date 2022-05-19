@@ -35,15 +35,16 @@ public class CancionServiceImpl implements CancionService {
     int id1 = id.getAndIncrement();
     String nombre = cancion.getNombre();
     String playlist = cancion.getPlaylist();
+    String usuario = cancion.getUser();
     String artista = cancion.getArtista();
     String album = cancion.getAlbum();
     int longitud = cancion.getLongitud();
-    cancionRepository.createCancion(id1,nombre,playlist,artista,album,longitud);
+    cancionRepository.createCancion(id1,nombre,playlist,usuario,artista,album,longitud);
   }
 
   @Override
-  public Iterable<CancionModel> getCancionesByPlaylistService(String playlist){
+  public Iterable<CancionModel> getCancionesByPlaylistUserService(String playlist,String user){
 
-    return cancionRepository.getCancionByPlaylist(playlist);
+    return cancionRepository.getCancionByPlaylistUser(playlist,user);
   }
 }

@@ -5,8 +5,8 @@ window.onload = async function(){
     localStorage.removeItem("playlist");
     console.log(playlist);
     document.getElementById("titleCanciones").innerHTML = playlist;
-
-    let url = 'api/v1/canciones/playlist/'+playlist;
+    let accessToken = localStorage.getItem("accessToken");
+    let url = 'api/v1/canciones/playlist/'+playlist+"?accessToken="+accessToken;
 
     fetch(url).then((response) => {
             console.log(response);

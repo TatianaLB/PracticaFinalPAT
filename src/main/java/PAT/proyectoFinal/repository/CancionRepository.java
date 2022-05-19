@@ -17,13 +17,13 @@ public interface CancionRepository extends CrudRepository<CancionModel,Integer> 
 
   //AL CREAR UNA CANCION, TAMBIEN TENGO QUE DIFERENCIAR ENTRE EL USUARIO QUE HA CREADO LA CANCION.
   @Modifying //SIEMPRE PONERLO CUANDO SE MODIFICA LA BASE DE DATOS
-  @Query("INSERT INTO CANCION (id,nombre,playlist,artista,album,longitud) VALUES (:id,:nombre,:playlist,:artista,:album,:longitud)")
-  void createCancion(int id, String nombre, String playlist, String artista, String album, int longitud);
+  @Query("INSERT INTO CANCION (id,nombre,playlist,user,artista,album,longitud) VALUES (:id,:nombre,:playlist,:usuario,:artista,:album,:longitud)")
+  void createCancion(int id, String nombre, String playlist, String usuario, String artista, String album, int longitud);
 
-  @Query("SELECT * FROM CANCION WHERE PLAYLIST=:playlist")
-  Iterable<CancionModel> getCancionByPlaylist(String playlist);
+  @Query("SELECT * FROM CANCION WHERE PLAYLIST=:playlist AND USER=:user")
+  Iterable<CancionModel> getCancionByPlaylistUser(String playlist, String user);
 
   @Modifying
-  @Query("DELETE * FROM CANCION WHERE NAME=:nombre AND PLAYLIST=:playlist")
+  @Query("DELETE FROM CANCION WHERE NAME=:nombre AND PLAYLIST=:playlist")
   void deleteCancionByNameAndPlaylist(@Param("nombre") String nombre, @Param("playlist") String playlist);
 }

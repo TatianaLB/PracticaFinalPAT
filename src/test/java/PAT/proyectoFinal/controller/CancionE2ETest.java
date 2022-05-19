@@ -80,15 +80,18 @@ public class CancionE2ETest {
         //Iterable<CancionModel> cancionIt = repository.deleteCancionByNameAndPlaylist("Gasolina","TemazosTuenti");
 
         //When: condiciones de nuestra prueba
-        String url = "http://localhost:" + Integer.toString(port) + "/api/v1/cancion/delete/Gasolina";
+
+        String url = "http://localhost:" + Integer.toString(port) + "/api/v1/cancion/delete/Gasolina?playlist=TemazosTuenti";
         HttpHeaders headers = new HttpHeaders();
-        HttpEntity<String> entity = new HttpEntity<>("Gasolina",headers);
+        //Lo que mandamos en el body
+        HttpEntity<String> entity = new HttpEntity<>(headers);
 
         //Given: Ejecutamos la prueba
         ResponseEntity<Void> result = restTemplate.exchange(
                 url,
                 HttpMethod.GET,
                 entity,
+                //Lo convertimos de JSON al objeto que necesitemos
                 new ParameterizedTypeReference<Void>() {}
         );
 
@@ -101,12 +104,12 @@ public class CancionE2ETest {
     @Test
     public void cancionGetByPlaylistTest(){
 
-        Iterable<CancionModel> cancionIt = repository.getCancionByPlaylist("2");
+        Iterable<CancionModel> cancionIt = repository.getCancionByPlaylistUser("Favoritos","dmljc3Ryb3llcjpwYXNzd29yZA==");
 
         //When: condiciones de nuestra prueba
-        String url = "http://localhost:" + Integer.toString(port) + "/api/v1/canciones/playlist/2";
+        String url = "http://localhost:" + Integer.toString(port) + "/api/v1/canciones/playlist/2?accessToken=dmljc3Ryb3llcjpwYXNzd29yZA==";
         HttpHeaders headers = new HttpHeaders();
-        HttpEntity<String> entity = new HttpEntity<>("2",headers);
+        HttpEntity<String> entity = new HttpEntity<>(headers);
 
         //Given: Ejecutamos la prueba
         ResponseEntity<Iterable<CancionModel>> result = restTemplate.exchange(

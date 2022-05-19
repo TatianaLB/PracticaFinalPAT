@@ -23,6 +23,9 @@ public class CancionModel {
   @Column("PLAYLIST")
   private String playlist;
 
+  @Column("USER")
+  private String user;
+
   @Column("ARTISTA")
   private String artista;
 
@@ -61,9 +64,12 @@ public class CancionModel {
 
   }
 
+  //por fallos en testing a causa de Lombok, se declaran manualmente.
   public String getArtista() {
     return artista;
   }
+
+  public String getUser(){return user;}
 
   public String getAlbum() {
     return album;
@@ -94,7 +100,12 @@ public class CancionModel {
   }
 
   public void setLongitud(int longitud) {
-    this.longitud = longitud;
+
+    if(longitud > 99999){
+      this.longitud = 99999;
+    }else {
+      this.longitud = longitud;
+    }
   }
 
 }

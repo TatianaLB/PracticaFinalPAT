@@ -32,12 +32,11 @@ public class CancionController {
   }
 
   @GetMapping("/cancion/delete/{name}")
+  @ResponseBody
   public ResponseEntity<Void> deleteCancionById(
           @PathVariable String name,
           @RequestParam(value="playlist",required=true) String playlist
           ){
-
-
     cancionService.deleteCancionByNameAndPlaylistService(name, playlist); //CAMBIAR PARA TENER EN CUENTA EL USUARIO
     return ResponseEntity.ok().build();
   }
@@ -59,9 +58,10 @@ public class CancionController {
 
   @GetMapping("/canciones/playlist/{id}")
   public ResponseEntity<Iterable<CancionModel>> getCancionesByPlaylist(
-          @PathVariable String id){
+          @PathVariable String id,
+          @RequestParam(value="accessToken",required=true) String user){
 
-    return ResponseEntity.ok().body(cancionService.getCancionesByPlaylistService(id));
+    return ResponseEntity.ok().body(cancionService.getCancionesByPlaylistUserService(id,user));
   }
 
 }
