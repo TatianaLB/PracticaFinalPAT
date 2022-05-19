@@ -34,11 +34,13 @@ window.onload = async function(){
                                    //var playlist = "mis cosas";
                                    var playlist = document.getElementById("playlist").value;
                                    console.log(playlist);
+                                   var usuario = localStorage.getItem("accessToken");
 
                                    var data = {
                                                "id": null,
                                                "nombre":nombre,
                                                "playlist":playlist,
+                                               "user":usuario,
                                                "artista":artista,
                                                "album":album,
                                                "longitud":longitud
@@ -57,7 +59,7 @@ window.onload = async function(){
                                            if(data.result == "OK") {
                                                alert("Canción Creada");
                                                document.location.href="/api/v1/canciones";
-                                               window.location.href = 'ListOfPlaylists.html';
+                                               window.location.href = 'ListOfCanciones.html';
                                            } else {
                                                alert("Error.");
                                            }

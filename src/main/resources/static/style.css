@@ -103,6 +103,11 @@ width: 6%;
     height:100vh;
 }
 
+#listOfCantantes{
+    background-color:#202020;
+    height:100vh;
+}
+
 .list-group-item{
     background-color:#DCFFD7;
     margin-top:1rem;

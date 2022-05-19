@@ -1,0 +1,2 @@
+INSERT INTO CANTANTES VALUES ('-1','Bad Bunny','YHLQMDLG','dGF0aWFuYWxiOnRhdGk='); -- tatianalb:tati to Base64
+INSERT INTO CANTANTES VALUES ('-2','Michael Jackson','Off the Wall','dGF0aWFuYWxiOnRhdGk='); -- tatianalb:tati to Base64
