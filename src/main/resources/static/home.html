@@ -18,6 +18,11 @@
             titulo.appendChild(texto);
 
         }
+
+        function LogOut(){
+            localStorage.removeItem("accessToken");
+            window.location.href = "index.html";
+        }
     </script>
 </head>
 <body style="background-color:#202020;">
@@ -33,7 +38,7 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item active">
-                    <a style="font-size:20px;" class="nav-link" href="index.html">Log Out</a>
+                    <a style="font-size:20px;" class="nav-link" href="javascript:LogOut()">Log Out</a>
                 </li>
 
                 <li class="nav-item">
@@ -100,13 +105,7 @@
             </div>
         </div>
     </div>
-    <h1 id="hello"></h1>
-<center>
-    <div style ="background-color:#202020;">
-        <br><br>
-        <a class="pr-2" href="index.html"  style="color:white">Volver a la Página Principal</a>
-    </div>
-</center>
+
 
 <script src="script.js"></script>
 
