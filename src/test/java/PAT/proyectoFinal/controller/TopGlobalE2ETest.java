@@ -44,6 +44,5 @@ public class TopGlobalE2ETest {
         //Then: Evaluamos la prueba
         then(result.getStatusCode()).isEqualTo(HttpStatus.OK);
         then(result.getBody()).isEqualTo(canciones);
-
     }
 }

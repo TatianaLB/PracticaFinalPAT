@@ -217,6 +217,5 @@ public class UserE2ETest {
         //then(result.getBody()).isEqualTo(loginResponse);
     }
 
-
 }
 

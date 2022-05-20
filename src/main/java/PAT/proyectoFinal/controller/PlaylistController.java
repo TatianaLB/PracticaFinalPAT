@@ -42,9 +42,7 @@ public class PlaylistController {
     //return ResponseEntity.ok().body(playlistService.getPlaylistsService());
   }
 
-  //LOS TRES DE ARRIBA FUNCIONAN BIEN.
 
-  //NO ESTA TERMINADO
   @RequestMapping(value="/playlist/{id}", method = RequestMethod.GET)
   public ResponseEntity<Iterable<PlaylistModel>> getPlaylistByName(
           @PathVariable String id,

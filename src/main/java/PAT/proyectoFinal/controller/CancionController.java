@@ -55,7 +55,6 @@ public class CancionController {
 
   }
 
-
   @GetMapping("/canciones/playlist/{id}")
   public ResponseEntity<Iterable<CancionModel>> getCancionesByPlaylist(
           @PathVariable String id,
