@@ -25,13 +25,13 @@ window.onload = async function(){
                         let album = data[i].album;
                         let longitud = data[i].longitud;
 
-                        button.textContent = (i+1) + "-  " + nombre + ". Artista: " + artista + ". Álbum: " + album + ". Duración: " + longitud + "min";
+                        button.textContent = (i+1) + "-  " + nombre + ". Artista: " + artista + ". Álbum: " + album + ". Duración: " + longitud + "seg";
                         button.setAttribute("class", "list-group-item");
                         //button.setAttribute("onclick", 'GoToCanciones()')
                         button.addEventListener("click", function(){
                            try {
                                    //var playlist = localStorage.getItem("playlist");
-                                   //var playlist = "mis cosas";
+
                                    var playlist = document.getElementById("playlist").value;
                                    console.log(playlist);
                                    var usuario = localStorage.getItem("accessToken");
@@ -59,7 +59,7 @@ window.onload = async function(){
                                            if(data.result == "OK") {
                                                alert("Canción Creada");
                                                document.location.href="/api/v1/canciones";
-                                               window.location.href = 'ListOfCanciones.html';
+                                               window.location.href = 'ListOfPlaylists.html';
                                            } else {
                                                alert("Error.");
                                            }

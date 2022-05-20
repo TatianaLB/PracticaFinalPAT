@@ -25,7 +25,7 @@ window.onload = async function(){
                         let artista = data[i].artista;
                         let album = data[i].album;
                         let longitud = data[i].longitud;
-                        button.textContent = nombre + " by " + artista + ". Pertenece al álbum "+ album + ". Es de duración: "+ longitud +"min";
+                        button.textContent = nombre + " by " + artista + ". Pertenece al álbum: "+ album + ". Es de duración: "+ longitud +"seg";
                         button.setAttribute("class", "list-group-item");
                         button.addEventListener("click", function(){
                             console.log("HELLO WORLD!");
