@@ -5,7 +5,6 @@ import PAT.proyectoFinal.service.Impl.CancionServiceImpl;
 import org.junit.Assert;
 import org.junit.jupiter.api.Test;
 
-import static org.assertj.core.api.BDDAssertions.then;
 
 public class CancionServiceTest{
 

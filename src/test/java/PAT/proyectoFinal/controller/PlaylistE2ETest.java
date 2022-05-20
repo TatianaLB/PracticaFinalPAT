@@ -74,20 +74,16 @@ public class PlaylistE2ETest {
 
     @Test
     public void createPlaylistByIdTest(){
-        PlaylistModel playlist = new PlaylistModel();
-        playlist.setId(1);
-        playlist.setNombre("TemazosTuenti");
-        playlist.setUser("dGF0aWFuYWxiOnRhdGk=");
 
         //When: condiciones de nuestra prueba
-        String url = "http://localhost:" + Integer.toString(port) + "/api/v1/playlist/create";
+        String url = "http://localhost:" + Integer.toString(port) + "/api/v1/playlist/create/TemazosTuenti2?user=tatianalb";
         HttpHeaders headers = new HttpHeaders();
-        HttpEntity<String> entity = new HttpEntity<>(playlist.getNombre(),headers);
+        HttpEntity<String> entity = new HttpEntity<>("TemazosTuenti2",headers);
 
         //Given: Ejecutamos la prueba
         ResponseEntity<String> result = restTemplate.exchange(
                 url,
-                HttpMethod.POST,
+                HttpMethod.GET,
                 entity,
                 new ParameterizedTypeReference<String>() {}
         );
