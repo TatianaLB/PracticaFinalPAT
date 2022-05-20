@@ -23,5 +23,4 @@ public class UserExceptionHandler {
     return new ResponseEntity<>("{\"result\" : \"Wrong Password.\"}", HttpStatus.CONFLICT);
   }
 
-
 }

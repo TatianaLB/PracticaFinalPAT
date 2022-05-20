@@ -82,6 +82,11 @@ function BorraUsuarioPorId(){
 function CreatePlaylistMethod(){
     try {
         let inputValue1 = document.getElementById("playlist").value;
+        if(inputValue1 == ""){
+            alert("Por favor, introduzca el nombre de la playlist");
+            playlist.focus();
+            return false;
+        }
         var accessToken = localStorage.getItem("accessToken");
         const address = 'api/v1/playlist/create/'+inputValue1+"?user="+accessToken;
         fetch(address, {

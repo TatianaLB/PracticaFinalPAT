@@ -1,10 +1,5 @@
 window.onload = async function(){
 
-    //let playlist = localStorage.getItem("playlist");
-    //localStorage.removeItem("playlist");
-   // console.log(playlist);
-    //document.getElementById("titleCanciones").innerHTML = playlist;
-
     let url = 'api/v1/top50global';
 
     fetch(url).then((response) => {
@@ -25,15 +20,12 @@ window.onload = async function(){
                         let album = data[i].album;
                         let longitud = data[i].longitud;
 
-                        button.textContent = (i+1) + "-  " + nombre + ". Artista: " + artista + ". Álbum: " + album + ". Duración: " + longitud + "seg";
+                        button.textContent = (i+1) + "-  " + nombre + ". Artista: " + artista + ". Álbum: " + album + ". Duración: " + longitud + " seg";
                         button.setAttribute("class", "list-group-item");
                         //button.setAttribute("onclick", 'GoToCanciones()')
                         button.addEventListener("click", function(){
                            try {
-                                   //var playlist = localStorage.getItem("playlist");
 
-//                                   var playlist = document.getElementById("playlist").value;
-                                   console.log(playlist);
                                    var usuario = localStorage.getItem("accessToken");
                                    var playlist = localStorage.getItem("playlist");
 
@@ -72,7 +64,7 @@ window.onload = async function(){
 
                            })
 
-                        //button.setAttribute("onclick", 'CreateCancionTopGlobal("'nombre + artista + album + longitud'")');
+
                         list.appendChild(button);
                     }
                 }

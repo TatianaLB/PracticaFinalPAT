@@ -62,7 +62,7 @@ public class UsuarioController {
     }
   }
 
-  @PostMapping("/login") //HACE FALTA EL CODIGO DE VERIFICACION Y TO ESO DEL NUEVO TEMA.
+  @PostMapping("/login")
   public ResponseEntity<LoginResponse> compararUsuario(
           @RequestBody UsuarioModel usuario,
           BindingResult bindingResult){
