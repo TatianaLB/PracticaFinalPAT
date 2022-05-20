@@ -16,10 +16,10 @@ public class CantantesController {
     @Autowired
     private CantantesService cantantesService;
 
-    @RequestMapping(value="/cantantes/create", method = RequestMethod.GET)
+    @RequestMapping(value="/cantantes/create", method = RequestMethod.POST)
     public ResponseEntity<String> createCantanteFav(
             @RequestBody CantantesModel cantante) {
-        boolean checkAlreadyExists = cantantesService.checkIfCantanteExistsService(cantante.getId(),cantante.getUser());
+        boolean checkAlreadyExists = cantantesService.checkIfCantanteExistsService(cantante.getNombre(),cantante.getUser());
         if(checkAlreadyExists){
             throw new CantanteAlreadyExistsException();
         }else{

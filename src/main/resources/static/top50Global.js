@@ -32,9 +32,10 @@ window.onload = async function(){
                            try {
                                    //var playlist = localStorage.getItem("playlist");
 
-                                   var playlist = document.getElementById("playlist").value;
+//                                   var playlist = document.getElementById("playlist").value;
                                    console.log(playlist);
                                    var usuario = localStorage.getItem("accessToken");
+                                   var playlist = localStorage.getItem("playlist");
 
                                    var data = {
                                                "id": null,
@@ -57,9 +58,8 @@ window.onload = async function(){
                                        .then(data => {
                                            console.log(data);
                                            if(data.result == "OK") {
-                                               alert("Canción Creada");
                                                document.location.href="/api/v1/canciones";
-                                               window.location.href = 'ListOfPlaylists.html';
+                                               window.location.href = 'ListOfCanciones.html';
                                            } else {
                                                alert("Error.");
                                            }

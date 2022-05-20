@@ -132,3 +132,7 @@ a.fill-div {
     width: 100%;
     text-decoration: none;
 }
+.my-div2{
+    background-color:white;
+    border-style:solid;
+}

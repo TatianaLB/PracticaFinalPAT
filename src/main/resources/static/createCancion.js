@@ -3,7 +3,7 @@ function CreateCancion(){
     try {
         var usuario = localStorage.getItem("accessToken");
         var nombre = document.getElementById("nombre").value;
-        var playlist = document.getElementById("playlist").value;
+        var playlist = localStorage.getItem("playlist");
         var artista = document.getElementById("artista").value;
         var album = document.getElementById("album").value;
         var longitud = document.getElementById("longitud").value;
@@ -29,9 +29,8 @@ function CreateCancion(){
             .then(data => {
                 console.log(data);
                 if(data.result == "OK") {
-                    alert("Canción Creada");
                     document.location.href="/api/v1/canciones";
-                    window.location.href="ListOfPlaylists.html"
+                    window.location.href="ListOfCanciones.html"
                 } else {
                     alert("Error.");
                 }

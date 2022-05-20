@@ -15,8 +15,8 @@ public interface CantantesRepository extends CrudRepository<CantantesModel,Integ
     @Query("INSERT INTO CANTANTES (ID, NOMBRE,ALBUM, USER) VALUES (:id, :nombre, :album, :user)")
     void createCantanteFav(int id, @Param("nombre") String nombre,@Param("album") String album, @Param("user") String user);
 
-    @Query("SELECT CASE WHEN EXISTS (SELECT * FROM CANTANTES WHERE ID=:id AND USER=:user) THEN TRUE ELSE FALSE END AS bool")
-    String trueOrFalsePlaylistService(@Param("id") int id, @Param("user") String user);
+    @Query("SELECT CASE WHEN EXISTS (SELECT * FROM CANTANTES WHERE NOMBRE=:nombre AND USER=:user) THEN TRUE ELSE FALSE END AS bool")
+    String trueOrFalsePlaylistService(@Param("nombre") String nombre, @Param("user") String user);
 
     @Query("SELECT * FROM CANTANTES WHERE USER=:user")
     Iterable<CantantesModel> findCantantesByUser(@Param("user") String user);

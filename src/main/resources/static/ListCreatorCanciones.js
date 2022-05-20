@@ -2,7 +2,6 @@ window.onload = async function(){
 
 
     let playlist = localStorage.getItem("playlist");
-    localStorage.removeItem("playlist");
     console.log(playlist);
     document.getElementById("titleCanciones").innerHTML = playlist;
     let accessToken = localStorage.getItem("accessToken");

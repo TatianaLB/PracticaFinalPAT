@@ -16,13 +16,12 @@ window.onload = async function(){
                         const button = document.createElement("button");
                         let nombre = data[i].nombre;
                         let album = data[i].album;
-
-                        button.textContent = "Artista: " nombre + ". Álbum favorito: " + album;
+                        button.textContent = "Artista: " + nombre + ". Álbum favorito: " + album;
                         button.setAttribute("class", "list-group-item");
                         button.addEventListener("click", function(){
                             console.log("HELLO WORLD!");
 
-                            })
+                            });
                         list.appendChild(button);
                     }
                 }
@@ -32,6 +31,6 @@ window.onload = async function(){
 
 
 
-};
+}
 
 

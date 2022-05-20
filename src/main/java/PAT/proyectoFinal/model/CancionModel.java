@@ -71,6 +71,7 @@ public class CancionModel {
 
   public String getUser(){return user;}
 
+
   public String getAlbum() {
     return album;
   }

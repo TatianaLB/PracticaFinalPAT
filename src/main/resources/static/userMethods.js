@@ -28,7 +28,6 @@ async function signUp(){
             .then(data => {
                 console.log(data);
                 if(data.result == "OK") {
-                    alert("Usuario Creado");
                     window.location.href="login.html";
                 } else {
                     alert(data.result);
@@ -64,7 +63,6 @@ async function LogIn(){
             .then(data => {
                 console.log(data);
                 if(data.result == "OK") {
-                    alert("Logged in");
                     console.log(data.accessToken);
                     localStorage.setItem("user", usuario);
                     localStorage.setItem("accessToken", data.accessToken);

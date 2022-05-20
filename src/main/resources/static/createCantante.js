@@ -11,18 +11,18 @@ function CreateCantante(){
                     };
         const address = 'api/v1/cantantes/create';
         fetch(address, {
-            method: 'GET',
+            method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
-            }
+            },
+            body:JSON.stringify(data)
             })
             .then(response => response.json())
             .then(data => {
                 console.log(data);
                 if(data.result == "OK") {
-                    alert("Artista Añadido");
                     //document.location.href="/api/v1/playlists";
-                    window.location.href = "home.html";
+                    window.location.href = "ListOfCantantesFavoritos.html";
                 }else {
                     alert(data.result);
                 }

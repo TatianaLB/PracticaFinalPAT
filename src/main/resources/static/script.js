@@ -94,9 +94,8 @@ function CreatePlaylistMethod(){
             .then(data => {
                 console.log(data);
                 if(data.result == "OK") {
-                    alert("Playlist Created");
                     //document.location.href="/api/v1/playlists";
-                    window.location.href = "home.html";
+                    window.location.href = "ListOfPlaylists.html";
                 }else {
                     alert(data.result);
                 }
@@ -110,13 +109,4 @@ function CreatePlaylistMethod(){
 }
 
 
-window.onload = function(){
-    const titulo = document.querySelector("#nombreAutomaticoUsuario");
-    let username = localStorage.getItem("user");
-    const texto = document.createElement("h1");
-    texto.setAttribute("style","color:#4dfc76;");
-    texto.textContent = "Bienvenido/a, " + username + "!";
-    titulo.appendChild(texto);
 
-
-}

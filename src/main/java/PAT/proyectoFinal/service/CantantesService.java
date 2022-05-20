@@ -5,6 +5,6 @@ import PAT.proyectoFinal.model.CantantesModel;
 
 public interface CantantesService {
     void createCantanteFavService(CantantesModel cantante);
-    boolean checkIfCantanteExistsService(int id, String user);
+    boolean checkIfCantanteExistsService(String nombre, String user);
     Iterable<CantantesModel> getCantantesByUserService(String user);
 }

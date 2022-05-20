@@ -29,8 +29,8 @@ public class CantantesServiceImpl implements CantantesService {
     }
 
     @Override
-    public boolean checkIfCantanteExistsService(int id, String user){
-        String exists = repository.trueOrFalsePlaylistService(id,user);
+    public boolean checkIfCantanteExistsService(String nombre, String user){
+        String exists = repository.trueOrFalsePlaylistService(nombre,user);
         if(exists == "TRUE"){
             return true;
         }else{
