@@ -1,8 +1,7 @@
 package PAT.proyectoFinal.controller;
 
-import PAT.proyectoFinal.exception.PlaylistAlreadyExistsSignUpException;
+import PAT.proyectoFinal.exception.CantanteAlreadyExistsException;
 import PAT.proyectoFinal.model.CantantesModel;
-import PAT.proyectoFinal.model.PlaylistModel;
 import PAT.proyectoFinal.service.CantantesService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
@@ -19,16 +18,14 @@ public class CantantesController {
 
     @RequestMapping(value="/cantantes/create", method = RequestMethod.GET)
     public ResponseEntity<String> createCantanteFav(
-            @RequestBody CantantesModel cantante,
-            @RequestParam(value="user", required=true) String user) {
-        boolean checkAlreadyExists = cantantesService.checkIfCantanteExistsService(cantante.getId(),user);
+            @RequestBody CantantesModel cantante) {
+        boolean checkAlreadyExists = cantantesService.checkIfCantanteExistsService(cantante.getId(),cantante.getUser());
         if(checkAlreadyExists){
-            throw new PlaylistAlreadyExistsSignUpException();
+            throw new CantanteAlreadyExistsException();
         }else{
-            cantantesService.createCantanteFavService(cantante.getNombre(),cantante.getAlbum(), cantante.getUser());
+            cantantesService.createCantanteFavService(cantante);
             return new ResponseEntity<>("{\"result\" : \"OK\"}", HttpStatus.OK);
         }
-
     }
 
     //Mostrar por usuario

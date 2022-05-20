@@ -2,14 +2,14 @@ function CreateCantante(){
     try {
         var nombre = document.getElementById("nombre").value;
         var album = document.getElementById("album").value;
-        var usuario = localStorage.getItem("accessToken");
+        var user = localStorage.getItem("accessToken");
         var data = {
                     "id": null,
                     "nombre":nombre,
-                    "user":usuario,
-                    "album":album
+                    "album":album,
+                    "user":user
                     };
-        const address = 'api/v1/cantantes/create'+"?user="+usuario;
+        const address = 'api/v1/cantantes/create';
         fetch(address, {
             method: 'GET',
             headers: {

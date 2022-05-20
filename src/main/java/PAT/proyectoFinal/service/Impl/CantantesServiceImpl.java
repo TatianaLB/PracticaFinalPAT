@@ -1,5 +1,6 @@
 package PAT.proyectoFinal.service.Impl;
 
+import PAT.proyectoFinal.model.CancionModel;
 import PAT.proyectoFinal.model.CantantesModel;
 import PAT.proyectoFinal.model.PlaylistModel;
 import PAT.proyectoFinal.repository.CantantesRepository;
@@ -18,9 +19,13 @@ public class CantantesServiceImpl implements CantantesService {
     CantantesRepository repository;
 
     @Override
-    public void createCantanteFavService(String name,String album, String user){
+    public void createCantanteFavService(CantantesModel cantante){
         int id1 = id.getAndIncrement();
-        repository.createCantanteFav(id1, name, album,user);
+        String nombre = cantante.getNombre();
+        String album = cantante.getAlbum();
+        String user = cantante.getUser();
+
+        repository.createCantanteFav(id1, nombre, album,user);
     }
 
     @Override
