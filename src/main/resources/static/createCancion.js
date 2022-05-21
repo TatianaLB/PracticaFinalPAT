@@ -15,7 +15,7 @@ function CreateCancion(){
             return false;
         }
 
-        var artistaRegex = new RegExp("^[a-zA-Z0-9]+$");
+        var artistaRegex = new RegExp("^[a-zA-Z0-9 ]+$");
         if (artista == "") {
             alert("Por favor, introduzca el nombre del artista");
             artista.focus();
@@ -28,7 +28,7 @@ function CreateCancion(){
             return false;
         }
 
-        var albumRegex = new RegExp("^[a-zA-Z0-9]+$");
+        var albumRegex = new RegExp("^[a-zA-Z0-9 ]+$");
         if (album == "") {
             alert("Por favor, introduzca el álbum al que pertenece la canción");
             album.focus();

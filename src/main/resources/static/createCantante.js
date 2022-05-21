@@ -5,7 +5,7 @@ function CreateCantante(){
         var user = localStorage.getItem("accessToken");
 
         //PRIMERO VALIDAMOS LOS DATOS
-        var nombreRegex = new RegExp("^[a-zA-Z0-9]+$");
+        var nombreRegex = new RegExp("^[a-zA-Z0-9 ]+$");
         if (nombre == "") {
             alert("Por favor, introduzca el nombre del artista que desea añadir a favoritos");
             nombre.focus();
@@ -18,7 +18,7 @@ function CreateCantante(){
             return false;
         }
 
-        var albumRegex = new RegExp("^[a-zA-Z0-9]+$");
+        var albumRegex = new RegExp("^[a-zA-Z0-9 ]+$");
         if (album == "") {
             alert("Por favor, introduzca el álbum favorito del artista");
             album.focus();

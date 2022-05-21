@@ -13,7 +13,7 @@ async function signUp(){
             return false;
         }
 
-        var usernameRegex = new RegExp("^[a-zA-Z0-9]+$");
+        var usernameRegex = new RegExp("^[a-zA-Z0-9 ]+$");
 
         if (username == "") {
             alert("Por favor, rellena el nombre de usuario");
@@ -27,7 +27,7 @@ async function signUp(){
             return false;
         }
 
-        var nombreApellidoRegex = new RegExp("^[a-zA-Z]+$");
+        var nombreApellidoRegex = new RegExp("^[a-zA-Z ]+$");
 
         if (nombre == "") {
             alert("Por favor, introduzca su nombre");
@@ -36,7 +36,7 @@ async function signUp(){
         }
         if (!nombreApellidoRegex.test(nombre))
         {
-            alert("El nombre introducido: " + nombre + " es inválido, sólo debe contener letras");
+            alert("El nombre: " + nombre + " es inválido, sólo debe contener letras");
             nombreUsuario.focus();
             return false;
         }
